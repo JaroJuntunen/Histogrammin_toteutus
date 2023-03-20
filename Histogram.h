@@ -15,17 +15,14 @@ class Histogram: public Hist::HistogramBase{
 	** elem_size on ( numbers muistin koko / sizeof(EInteger)) numberssin pituus.
 	*/
 	public:
-		Histogram(){
-			elem_size = 0;
-		}
-		virtual void			add(Hist::EInteger new_num);
-		virtual Hist::EInteger	getMinValue();
-		virtual Hist::EInteger	getMaxValue();
-		virtual Hist::EInteger	getMode();
+		void			add(Hist::EInteger new_num);
+		Hist::EInteger	getMinValue(void);
+		Hist::EInteger	getMaxValue(void);
+		Hist::EInteger	getMode(void);
 		/*
 		** Lisäsin oman funktion destroy jotta muisti voitaisiin vapauttaa,
 		** kun kyseistä histogrammia ei enää tarvita.
 		*/
-		virtual void			destroy();
+		void	destroy();
 };
 #endif

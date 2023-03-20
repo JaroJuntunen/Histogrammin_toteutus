@@ -5,7 +5,12 @@
 #include <stdlib.h>
 
 class	RandomEintegerGenerator: public Hist::RandomEintegerGeneratorBase{
+	private:
+		int test;
 	public:
-		virtual Hist::EInteger operator()();
+		RandomEintegerGenerator(){
+			test = 0;
+		}
+		Hist::EInteger operator()();
 };
 #endif

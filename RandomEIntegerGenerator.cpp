@@ -7,7 +7,10 @@
 */
 Hist::EInteger RandomEintegerGenerator::operator()()
 {
-	srand((unsigned)time(NULL));
+	if (test == 0){
+		srand((unsigned)time(NULL));
+		test = 1;
+	}
 	int n = rand();
 	n = n % 5;
 	/*
