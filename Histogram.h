@@ -2,27 +2,24 @@
 #define HISTOGRAM_H
 
 #include "HistogramBase.h"
-#include <stdlib.h>
+#include <vector>
 
 class Histogram: public Hist::HistogramBase{
-	
-	private:
-		Hist::EInteger		*numbers;
-		int					elem_size;
 	/*
-	**Muuttujat jotka tulevat sisältämään
-	** nubers osoitin tulee olemaan arrey EIntegereistä.
-	** elem_size on ( numbers muistin koko / sizeof(EInteger)) numberssin pituus.
+	** Mahdollisesti HistogramBasen periytyessä, Funktiot toimi.
+	** Nämä kyseiset funktiot ainakin toimivat kun Histogram ei peri HistogramBasea ja
+	** kun Histogramista on muuttuja eikä osoitin. En Kyennyt testaamaan perinnän kanssa
+	** sillä itsellä ei HistogramBasen rakentajia eikä Log.h:ta ole ja niitä ei pyydetty
+	** toteuttamaan.
 	*/
+	private:
+		std::vector<Hist::EInteger>	numbers;
+
 	public:
-		void			add(Hist::EInteger new_num);
-		Hist::EInteger	getMinValue(void);
-		Hist::EInteger	getMaxValue(void);
-		Hist::EInteger	getMode(void);
-		/*
-		** Lisäsin oman funktion destroy jotta muisti voitaisiin vapauttaa,
-		** kun kyseistä histogrammia ei enää tarvita.
-		*/
-		void	destroy();
+	void			add(Hist::EInteger new_num);
+	Hist::EInteger	getMinValue() const;
+	Hist::EInteger	getMaxValue() const;
+	Hist::EInteger	getMode() const;
+
 };
 #endif

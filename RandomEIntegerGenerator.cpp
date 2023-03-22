@@ -5,16 +5,14 @@
 ** modulo 5 jotta saamme sen Hist::EIntegerin rajoihin.
 ** Jonka jälkeen teemme Typecastin jotta muutamme intin EIntegeriksi.
 */
-Hist::EInteger RandomEintegerGenerator::operator()()
+Hist::EInteger	RandomEintegerGenerator::operator()()
 {
+	int	n;
+
 	if (test == 0){
 		srand((unsigned)time(NULL));
 		test = 1;
 	}
-	int n = rand();
-	n = n % 5;
-	/*
-	** Mahdollisesti tämä EInteger typecast ei toimi kuten uskon sen toimivan.
-	*/
+	n = (rand() % 5);
 	return ((Hist::EInteger)n);
 }
